@@ -2,10 +2,7 @@
 title: API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
-  - ruby
-  - python
-  - javascript
+  - curl
 
 toc_footers:
   - <a href='#'>Sign Up for a Developer Key</a>
@@ -27,12 +24,16 @@ We have language bindings in Shell, Ruby, Python, and JavaScript! You can view c
 
 ## Get All Blocks
 
+```curl
+curl -X GET "https://dh8cl297ul.execute-api.ap-southeast-1.amazonaws.com/api/blocks?limit=30&page=1" -H "accept: application/json"
+```
+
 ### HTTP Request
 
-`GET http://example.com/api/kittens`
+`GET https://dh8cl297ul.execute-api.ap-southeast-1.amazonaws.com/api/blocks`
 
 
-> The above command returns JSON structured like this:
+> The HTTP request returns JSON structured like this:
 
 ````json
 {
@@ -65,7 +66,7 @@ We have language bindings in Shell, Ruby, Python, and JavaScript! You can view c
 }
 ```
 
-This endpoint retrieves all the blocks.
+This endpoint retrieves all the blocks from cennznet restricting to 30 blcoks by default.
 
 
 
