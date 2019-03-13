@@ -65,7 +65,7 @@ curl -X GET "https://dh8cl297ul.execute-api.ap-southeast-1.amazonaws.com/api/blo
     "status": "complete"
   }
 }
-```
+````
 ###Code 400 - Error
 
 #### possible response 1:
@@ -77,7 +77,7 @@ curl -X GET "https://dh8cl297ul.execute-api.ap-southeast-1.amazonaws.com/api/blo
     "Message": "start/end time must be less than the current timestamp ({current_time})!"
   }
 }
-```
+````
 #### possible response 2:
 
 ````json
@@ -87,7 +87,7 @@ curl -X GET "https://dh8cl297ul.execute-api.ap-southeast-1.amazonaws.com/api/blo
     "Message": "start/end time must be greater than zero!"
   }
 }
-```
+````
 #### possible response 3:
 
 ````json
