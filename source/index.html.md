@@ -34,7 +34,7 @@ curl -X GET "https://dh8cl297ul.execute-api.ap-southeast-1.amazonaws.com/api/blo
 
 
 > The HTTP request returns the following JSON structure:
-> Code 200 - Success
+> ###Code 200 - Success
 
 ````json
 {
@@ -66,7 +66,7 @@ curl -X GET "https://dh8cl297ul.execute-api.ap-southeast-1.amazonaws.com/api/blo
   }
 }
 ````
-> Code 400 - Error
+> ###Code 400 - Error
 
 > Possible response 1:
 
@@ -125,7 +125,7 @@ curl -X GET "https://dh8cl297ul.execute-api.ap-southeast-1.amazonaws.com/api/blo
 
 > The HTTP request returns the following JSON structured:
 
-> Code 200 - Success
+> ###Code 200 - Success
 ````json
 {
   "params": {
