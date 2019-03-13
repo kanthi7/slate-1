@@ -19,221 +19,61 @@ search: true
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Welcome to the CENNZ scan API! You can use our API to access CENNZ scan API endpoints, which can get information on various transactions, blocks, and address from CENNZ net (RIMU version)
 
 We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
 
-This example API documentation page was created with [Slate](https://github.com/lord/slate). Feel free to edit it and use it as a base for your own API's documentation.
+# Blocks endoint
 
-# Authentication
-
-> To authorize, use this code:
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
-
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-
-# Kittens
-
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
-
-This endpoint retrieves all kittens.
+## Get All Blocks
 
 ### HTTP Request
 
 `GET http://example.com/api/kittens`
 
+
+> The above command returns JSON structured like this:
+
+````json
+{
+  "params": {
+    "limit": 30,
+    "offset": 0,
+    "start_time": 1540608690,
+    "end_time": 1548384690
+  },
+  "result": {
+    "number": 158174,
+    "hash": "0x9965008d9b0e6f3d07f0b274c0dfaff4bdc86f99a0f229c11f3b5dbb8ab00a68",
+    "parentHash": "0xf710b4cd572c6f078f4b59405ee35dc3f40d58e76aeceb5beeae7b9d3f720c7a",
+    "stateRoot": "0x71d488ad7d7d95a68d6b1445727890c3c54d1fdb9e8393d8cf94f30755eaf99c",
+    "extrinscicsRoot": "0xc8d89314f6372c38e66292de1278970f93ea1b541aa401fa52aa4ce941fbcf7c",
+    "timestamp": 1548384684,
+    "transactionCount": 0,
+    "baseFee": 10,
+    "byteFee": 1,
+    "transferFee": 1,
+    "author": "5DcS1HEPFaPJVwoU52HLZNkuikoP5Qey2eU5B26v6D7qjkiB",
+    "extrinsicsCount": 1,
+    "validators": [
+      "5DcS1HEPFaPJVwoU52HLZNkuikoP5Qey2eU5B26v6D7qjkiB",
+      "5G6tDRK9KSWLx3zL4gMnzh2K6QUNAb6EGCiyPMTAzCmt45A4",
+      "5EKGZwAuwvVpVaGWZJ3hYDqTSxQCDDUgeMv36M4qLq7wtWLH"
+    ],
+    "status": "complete"
+  }
+}
+```
+
+This endpoint retrieves all the blocks.
+
+
+
 ### Query Parameters
 
 Parameter | Default | Description
 --------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
-
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-
-### HTTP Request
-
-`GET http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
-
-## Delete a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -X DELETE
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
-```
-
-This endpoint deletes a specific kitten.
-
-### HTTP Request
-
-`DELETE http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
-
+limit | 30 | (Optional) Specifies the number of records per page. If set to true, the result will get 30 blocks by defult.
+page | 1 | (Optional) Displays the page number. If set to true, the result will be displayed in 1 page.
+start_time | - | (Optional) Represents the lower bound for time range and takes last 90 days from end_time(UTC) as default value in UNIX epoch timestamp format.
+end_time | - | (Optional) Represents the upper bound for time range and takes current time(UTC) as default value in UNIX epoch timestamp format.
