@@ -227,6 +227,9 @@
                   <li>
                     <a href="#get-all-blocks" class="toc-h2 toc-link" data-title="Get All Blocks">Get All Blocks</a>
                   </li>
+                  <li>
+                    <a href="#get-latest-blocks" class="toc-h2 toc-link" data-title="Get latest Blocks">Get latest Blocks</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -250,8 +253,8 @@
 <p><code>GET https://dh8cl297ul.execute-api.ap-southeast-1.amazonaws.com/api/blocks</code></p>
 
 <blockquote>
-<p>The HTTP request returns JSON structured like this:</p>
-</blockquote>
+<p>The HTTP request returns the following JSON structure:</p>
+<h3 id='code-200-success'>Code 200 - Success</h3></blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
@@ -278,6 +281,24 @@
       </span><span class="s2">"5EKGZwAuwvVpVaGWZJ3hYDqTSxQCDDUgeMv36M4qLq7wtWLH"</span><span class="w">
     </span><span class="p">],</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"complete"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='code-400-error'>Code 400 - Error</h3><h4 id='possible-response-1'>possible response 1:</h4><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"start/end time must be less than the current timestamp ({current_time})!"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h4 id='possible-response-2'>possible response 2:</h4><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"start/end time must be greater than zero!"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h4 id='possible-response-3'>possible response 3:</h4><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"start time must be smaller than end time!"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -311,6 +332,43 @@
 <td>(Optional) Represents the upper bound for time range and takes current time(UTC) as default value in UNIX epoch timestamp format.</td>
 </tr>
 </tbody></table>
+<h2 id='get-latest-blocks'>Get latest Blocks</h2><pre class="highlight plaintext"><code>curl -X GET "https://dh8cl297ul.execute-api.ap-southeast-1.amazonaws.com/api/blocks/latest" -H "accept: application/json"
+</code></pre><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://dh8cl297ul.execute-api.ap-southeast-1.amazonaws.com/api/blocks/latest</code></p>
+
+<blockquote>
+<p>The HTTP request returns the following JSON structured:</p>
+</blockquote>
+<h3 id='code-200-success-2'>Code 200 - Success</h3><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1540608690</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1548384690</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">158174</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x9965008d9b0e6f3d07f0b274c0dfaff4bdc86f99a0f229c11f3b5dbb8ab00a68"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"parentHash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xf710b4cd572c6f078f4b59405ee35dc3f40d58e76aeceb5beeae7b9d3f720c7a"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"stateRoot"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x71d488ad7d7d95a68d6b1445727890c3c54d1fdb9e8393d8cf94f30755eaf99c"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"extrinscicsRoot"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xc8d89314f6372c38e66292de1278970f93ea1b541aa401fa52aa4ce941fbcf7c"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1548384684</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transactionCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"baseFee"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"byteFee"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transferFee"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5DcS1HEPFaPJVwoU52HLZNkuikoP5Qey2eU5B26v6D7qjkiB"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"extrinsicsCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"validators"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"5DcS1HEPFaPJVwoU52HLZNkuikoP5Qey2eU5B26v6D7qjkiB"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"5G6tDRK9KSWLx3zL4gMnzh2K6QUNAb6EGCiyPMTAzCmt45A4"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"5EKGZwAuwvVpVaGWZJ3hYDqTSxQCDDUgeMv36M4qLq7wtWLH"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"complete"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves the latest block from cennznet.</p>
 <h1 id='errors'>Errors</h1>
 <aside class="notice">
 This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
