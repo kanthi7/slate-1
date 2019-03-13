@@ -1,0 +1,1891 @@
+<!-- Generator: Widdershins v3.6.6 -->
+
+<section>
+<h1 id="cennz-scan-api-documentation">Cennz-scan API documentation v1.0.0</h1>
+
+> Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
+
+API endpoints for Cennz-scan. Some simple API to fetch data from CENNZscan
+
+Base URLs:
+
+* <a href="https://dh8cl297ul.execute-api.ap-southeast-1.amazonaws.com/api">https://dh8cl297ul.execute-api.ap-southeast-1.amazonaws.com/api</a>
+
+<a href="https://centrality.ai/">Terms of service</a>
+Email: <a href="mailto:social@centrality.ai">Cennz-scan API support</a> Web: <a href="https://centrality.ai/">Cennz-scan API support</a> 
+
+</section>
+
+<section>
+<h1 id="cennz-scan-api-documentation-blocks-endpoints">Blocks endpoints</h1>
+
+Everything about CENNZ scan blocks
+
+<a href="https://service.centrality.cloud/cennzscan">Find out more about our application</a>
+
+<section>
+
+## Returns the blocks.
+
+> Code samples
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://dh8cl297ul.execute-api.ap-southeast-1.amazonaws.com/api/blocks',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://dh8cl297ul.execute-api.ap-southeast-1.amazonaws.com/api/blocks', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+`GET /blocks`
+
+Returns the last 30 blocks by default from cennz-scan.
+
+<section>
+<h3 id="returns-the-blocks.-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|limit|query|integer|false|(Optional) Specifies the number of records per page.|
+|page|query|integer|false|(Optional) Displays the page number.|
+|start_time|query|integer|false|(Optional) Represents the lower bound for time range and takes last 90 days from end_time(UTC) as default value in UNIX epoch timestamp format.|
+|end_time|query|integer|false|(Optional) Represents the upper bound for time range and takes current time(UTC) as default value in UNIX epoch timestamp format.|
+
+</section>
+
+<blockquote>
+<p>Example responses</p>
+
+<p>200 Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1540608690</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1548384690</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">158174</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x9965008d9b0e6f3d07f0b274c0dfaff4bdc86f99a0f229c11f3b5dbb8ab00a68"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"parentHash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xf710b4cd572c6f078f4b59405ee35dc3f40d58e76aeceb5beeae7b9d3f720c7a"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"stateRoot"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x71d488ad7d7d95a68d6b1445727890c3c54d1fdb9e8393d8cf94f30755eaf99c"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"extrinscicsRoot"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xc8d89314f6372c38e66292de1278970f93ea1b541aa401fa52aa4ce941fbcf7c"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1548384684</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transactionCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"baseFee"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"byteFee"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transferFee"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5DcS1HEPFaPJVwoU52HLZNkuikoP5Qey2eU5B26v6D7qjkiB"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"extrinsicsCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"validators"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"5DcS1HEPFaPJVwoU52HLZNkuikoP5Qey2eU5B26v6D7qjkiB"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"5G6tDRK9KSWLx3zL4gMnzh2K6QUNAb6EGCiyPMTAzCmt45A4"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"5EKGZwAuwvVpVaGWZJ3hYDqTSxQCDDUgeMv36M4qLq7wtWLH"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"complete"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Bad error request</p>
+</blockquote>
+
+<section>
+<h3 id="returns-the-blocks.-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Successful|Inline|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad error request|None|
+
+<h3 id="returns-the-blocks.-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+*response*
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|» params|object|false|none|none|
+|»» limit|integer|false|none|none|
+|»» offset|integer|false|none|none|
+|»» start_time|integer|false|none|none|
+|»» end_time|integer|false|none|none|
+|» result|object|false|none|none|
+|»» number|integer|false|none|none|
+|»» hash|string|false|none|none|
+|»» parentHash|string|false|none|none|
+|»» stateRoot|string|false|none|none|
+|»» extrinscicsRoot|string|false|none|none|
+|»» timestamp|integer|false|none|none|
+|»» transactionCount|integer|false|none|none|
+|»» baseFee|integer|false|none|none|
+|»» byteFee|integer|false|none|none|
+|»» transferFee|integer|false|none|none|
+|»» author|string|false|none|none|
+|»» extrinsicsCount|integer|false|none|none|
+|»» validators|string|false|none|none|
+|»» status|string|false|none|none|
+
+</section>
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+<p></section></p>
+
+<section>
+
+## Returns the latest block.
+
+> Code samples
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://dh8cl297ul.execute-api.ap-southeast-1.amazonaws.com/api/blocks/latest',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://dh8cl297ul.execute-api.ap-southeast-1.amazonaws.com/api/blocks/latest', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+`GET /blocks/latest`
+
+Returns the latest block from cennz-scan.
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "result": {
+    "number": 158174,
+    "hash": "0x9965008d9b0e6f3d07f0b274c0dfaff4bdc86f99a0f229c11f3b5dbb8ab00a68",
+    "parentHash": "0xf710b4cd572c6f078f4b59405ee35dc3f40d58e76aeceb5beeae7b9d3f720c7a",
+    "stateRoot": "0x71d488ad7d7d95a68d6b1445727890c3c54d1fdb9e8393d8cf94f30755eaf99c",
+    "extrinscicsRoot": "0xc8d89314f6372c38e66292de1278970f93ea1b541aa401fa52aa4ce941fbcf7c",
+    "timestamp": 1548384684,
+    "transactionCount": 0,
+    "baseFee": 10,
+    "byteFee": 1,
+    "transferFee": 1,
+    "author": "5DcS1HEPFaPJVwoU52HLZNkuikoP5Qey2eU5B26v6D7qjkiB",
+    "extrinsicsCount": 1,
+    "validators": [
+      "5DcS1HEPFaPJVwoU52HLZNkuikoP5Qey2eU5B26v6D7qjkiB",
+      "5G6tDRK9KSWLx3zL4gMnzh2K6QUNAb6EGCiyPMTAzCmt45A4",
+      "5EKGZwAuwvVpVaGWZJ3hYDqTSxQCDDUgeMv36M4qLq7wtWLH"
+    ],
+    "status": "complete"
+  }
+}
+```
+
+<section>
+<h3 id="returns-the-latest-block.-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Successful|Inline|
+
+<h3 id="returns-the-latest-block.-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|» result|object|false|none|none|
+|»» number|integer|false|none|none|
+|»» hash|string|false|none|none|
+|»» parentHash|string|false|none|none|
+|»» stateRoot|string|false|none|none|
+|»» extrinscicsRoot|string|false|none|none|
+|»» timestamp|integer|false|none|none|
+|»» transactionCount|integer|false|none|none|
+|»» baseFee|integer|false|none|none|
+|»» byteFee|integer|false|none|none|
+|»» transferFee|integer|false|none|none|
+|»» author|string|false|none|none|
+|»» extrinsicsCount|integer|false|none|none|
+|»» validators|string|false|none|none|
+|»» status|string|false|none|none|
+
+</section>
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+<p></section></p>
+
+<section>
+
+## Returns the latest block number.
+
+> Code samples
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://dh8cl297ul.execute-api.ap-southeast-1.amazonaws.com/api/blocks/latest/number',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://dh8cl297ul.execute-api.ap-southeast-1.amazonaws.com/api/blocks/latest/number', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+`GET /blocks/latest/number`
+
+Returns the latest block number from cennz-scan.
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "latestBlockNumber": 158382
+}
+```
+
+<section>
+<h3 id="returns-the-latest-block-number.-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Successful|Inline|
+
+<h3 id="returns-the-latest-block-number.-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+*response*
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|» latestBlockNumber|integer|false|none|none|
+
+</section>
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+<p></section></p>
+
+<section>
+
+## Returns the blocks by specific block number or block hash.
+
+> Code samples
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://dh8cl297ul.execute-api.ap-southeast-1.amazonaws.com/api/blocks/{id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://dh8cl297ul.execute-api.ap-southeast-1.amazonaws.com/api/blocks/{id}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+`GET /blocks/{id}`
+
+Returns the specific blocks by specific block number or block hash from cennz-scan.
+
+<section>
+<h3 id="returns-the-blocks-by-specific-block-number-or-block-hash.-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|id|path|string|true|(Required) id will be the block number or block hash from cennz-scan.|
+
+</section>
+
+<blockquote>
+<p>Example responses</p>
+
+<p>200 Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">158174</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x9965008d9b0e6f3d07f0b274c0dfaff4bdc86f99a0f229c11f3b5dbb8ab00a68"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"parentHash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xf710b4cd572c6f078f4b59405ee35dc3f40d58e76aeceb5beeae7b9d3f720c7a"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"stateRoot"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x71d488ad7d7d95a68d6b1445727890c3c54d1fdb9e8393d8cf94f30755eaf99c"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"extrinscicsRoot"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xc8d89314f6372c38e66292de1278970f93ea1b541aa401fa52aa4ce941fbcf7c"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1548384684</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transactionCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"baseFee"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"byteFee"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transferFee"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5DcS1HEPFaPJVwoU52HLZNkuikoP5Qey2eU5B26v6D7qjkiB"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"extrinsicsCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"validators"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"5DcS1HEPFaPJVwoU52HLZNkuikoP5Qey2eU5B26v6D7qjkiB"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"5G6tDRK9KSWLx3zL4gMnzh2K6QUNAb6EGCiyPMTAzCmt45A4"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"5EKGZwAuwvVpVaGWZJ3hYDqTSxQCDDUgeMv36M4qLq7wtWLH"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"complete"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Bad error request</p>
+</blockquote>
+
+<section>
+<h3 id="returns-the-blocks-by-specific-block-number-or-block-hash.-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Successful|Inline|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad error request|None|
+
+<h3 id="returns-the-blocks-by-specific-block-number-or-block-hash.-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|» result|object|false|none|none|
+|»» number|integer|false|none|none|
+|»» hash|string|false|none|none|
+|»» parentHash|string|false|none|none|
+|»» stateRoot|string|false|none|none|
+|»» extrinscicsRoot|string|false|none|none|
+|»» timestamp|integer|false|none|none|
+|»» transactionCount|integer|false|none|none|
+|»» baseFee|integer|false|none|none|
+|»» byteFee|integer|false|none|none|
+|»» transferFee|integer|false|none|none|
+|»» author|string|false|none|none|
+|»» extrinsicsCount|integer|false|none|none|
+|»» validators|string|false|none|none|
+|»» status|string|false|none|none|
+
+</section>
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+<p></section></p>
+
+<section>
+
+## Returns the transactions by specific block number or block hash..
+
+> Code samples
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://dh8cl297ul.execute-api.ap-southeast-1.amazonaws.com/api/blocks/{id}/transactions',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://dh8cl297ul.execute-api.ap-southeast-1.amazonaws.com/api/blocks/{id}/transactions', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+`GET /blocks/{id}/transactions`
+
+Returns the transaction from a particular block defined by its block number or block hash from cennz-scan.
+
+<section>
+<h3 id="returns-the-transactions-by-specific-block-number-or-block-hash..-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|id|path|string|true|(Required) id will be the block number or block hash from cennz-scan.|
+|page|query|integer|false|(Optional) Limits the number of items on a page|
+|limit|query|integer|false|(Optional) Specifies the number of transactions to return.|
+|asset_id|query|string|false|(Optional) Allows the user to limit by asset ID|
+
+</section>
+
+<blockquote>
+<p>Example responses</p>
+
+<p>200 Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"211549"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x0f856bfdc78f572a65dbdc8b61afdf5fe4cc2cbc967083f449049347297b2266"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"blockNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">5467903</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"blockHash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x987678e70b1bb2dcb82b56bded6a6b1cc3bfa1994271b13ed532e995f743d032"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fromAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x6ef8831d3ea0b4ee6ea742906daff7c0199a7ce3"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fromAddressBalance"</span><span class="p">:</span><span class="w"> </span><span class="mi">13925</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"toAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x47a16e51bcc89c0015622fe83eb482a4522f6c5c"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"toAddressBalance"</span><span class="p">:</span><span class="w"> </span><span class="mi">10449</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">48</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"nonce"</span><span class="p">:</span><span class="w"> </span><span class="mi">48</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">280</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1548712836</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"assetId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Bad error request</p>
+</blockquote>
+
+<section>
+<h3 id="returns-the-transactions-by-specific-block-number-or-block-hash..-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Successful|Inline|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad error request|None|
+
+<h3 id="returns-the-transactions-by-specific-block-number-or-block-hash..-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+*response*
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|» params|object|false|none|none|
+|»» id|string|false|none|none|
+|»» limit|integer|false|none|none|
+|»» offset|integer|false|none|none|
+|»» total|integer|false|none|none|
+|» result|object|false|none|none|
+|»» hash|string|false|none|none|
+|»» blockNumber|integer|false|none|none|
+|»» blockHash|string|false|none|none|
+|»» fromAddress|string|false|none|none|
+|»» fromAddressBalance|string|false|none|none|
+|»» toAddress|string|false|none|none|
+|»» toAddressBalance|string|false|none|none|
+|»» value|string|false|none|none|
+|»» fee|integer|false|none|none|
+|»» nonce|integer|false|none|none|
+|»» size|integer|false|none|none|
+|»» status|boolean|false|none|none|
+|»» timestamp|integer|false|none|none|
+|»» assetId|integer|false|none|none|
+
+</section>
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+<p></section></p>
+
+<p></section></p>
+
+<section>
+<h1 id="cennz-scan-api-documentation-transactions-endpoints">Transactions endpoints</h1>
+
+Everything about CENNZ scan transactions
+
+<a href="https://service.centrality.cloud/cennzscan">Find out more about our application</a>
+
+<section>
+
+## Returns the token.
+
+> Code samples
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://dh8cl297ul.execute-api.ap-southeast-1.amazonaws.com/api/transactions',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://dh8cl297ul.execute-api.ap-southeast-1.amazonaws.com/api/transactions', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+`GET /transactions`
+
+Returns the last 30 tokens by default from cennz-scan.
+
+<section>
+<h3 id="returns-the-token.-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|limit|query|integer|false|(Optional) Specifies the number of records per page.|
+|page|query|integer|false|(Optional) Displays the page number.|
+|start_time|query|integer|false|(Optional) Limits by start time of the transaction and takes last 90 days by defaultvalue represented in UNIX epoch timestamp format.|
+|end_time|query|integer|false|(Optional) Limits by start time of the transaction and takes current time (UTC) as default value represented in UNIX epoch timestamp format.|
+|asset_id|query|integer|false|(Optional) Specifing the particular asset_id will return transactions for mentioned token. asset_id accepts only single value. If asset_id is not specified by default it will take all the values and it will not be returned in the parameter section.|
+
+</section>
+
+<blockquote>
+<p>Example responses</p>
+
+<p>200 Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1540608690</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1548384690</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">345</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x0f856bfdc78f572a65dbdc8b61afdf5fe4cc2cbc967083f449049347297b2266"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"blockNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">5467903</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"blockHash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x987678e70b1bb2dcb82b56bded6a6b1cc3bfa1994271b13ed532e995f743d032"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fromAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x6ef8831d3ea0b4ee6ea742906daff7c0199a7ce3"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fromAddressBalance"</span><span class="p">:</span><span class="w"> </span><span class="mi">13925</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"toAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x47a16e51bcc89c0015622fe83eb482a4522f6c5c"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"toAddressBalance"</span><span class="p">:</span><span class="w"> </span><span class="mi">10449</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">48</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"nonce"</span><span class="p">:</span><span class="w"> </span><span class="mi">48</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">280</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1548712836</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"assetId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Bad error request</p>
+</blockquote>
+
+<section>
+<h3 id="returns-the-token.-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Successful|Inline|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad error request|None|
+
+<h3 id="returns-the-token.-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+*response*
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|» params|object|false|none|none|
+|»» limit|integer|false|none|none|
+|»» offset|integer|false|none|none|
+|»» start_time|integer|false|none|none|
+|»» end_time|integer|false|none|none|
+|»» total|integer|false|none|none|
+|» result|object|false|none|none|
+|»» hash|string|false|none|none|
+|»» blockNumber|integer|false|none|none|
+|»» blockHash|string|false|none|none|
+|»» fromAddress|string|false|none|none|
+|»» fromAddressBalance|string|false|none|none|
+|»» toAddress|string|false|none|none|
+|»» toAddressBalance|string|false|none|none|
+|»» value|string|false|none|none|
+|»» fee|integer|false|none|none|
+|»» nonce|integer|false|none|none|
+|»» size|integer|false|none|none|
+|»» status|boolean|false|none|none|
+|»» timestamp|integer|false|none|none|
+|»» assetId|integer|false|none|none|
+
+</section>
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+<p></section></p>
+
+<section>
+
+## Returns the block by transaction hash.
+
+> Code samples
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://dh8cl297ul.execute-api.ap-southeast-1.amazonaws.com/api/transactions/{hash}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://dh8cl297ul.execute-api.ap-southeast-1.amazonaws.com/api/transactions/{hash}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+`GET /transactions/{hash}`
+
+Returns the block by transaction hash from cennz-scan.
+
+<section>
+<h3 id="returns-the-block-by-transaction-hash.-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|hash|path|string|true|(Required) Hash number for the transaction.|
+
+</section>
+
+<blockquote>
+<p>Example responses</p>
+
+<p>200 Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x0f856bfdc78f572a65dbdc8b61afdf5fe4cc2cbc967083f449049347297b2266"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"blockNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">5467903</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"blockHash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x987678e70b1bb2dcb82b56bded6a6b1cc3bfa1994271b13ed532e995f743d032"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fromAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x6ef8831d3ea0b4ee6ea742906daff7c0199a7ce3"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fromAddressBalance"</span><span class="p">:</span><span class="w"> </span><span class="mi">13925</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"toAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x47a16e51bcc89c0015622fe83eb482a4522f6c5c"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"toAddressBalance"</span><span class="p">:</span><span class="w"> </span><span class="mi">10449</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">48</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"nonce"</span><span class="p">:</span><span class="w"> </span><span class="mi">48</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">280</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1548712836</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"assetId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Bad error request</p>
+</blockquote>
+
+<section>
+<h3 id="returns-the-block-by-transaction-hash.-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Successful|Inline|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad error request|None|
+
+<h3 id="returns-the-block-by-transaction-hash.-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|» result|object|false|none|none|
+|»» hash|string|false|none|none|
+|»» blockNumber|integer|false|none|none|
+|»» blockHash|string|false|none|none|
+|»» fromAddress|string|false|none|none|
+|»» fromAddressBalance|string|false|none|none|
+|»» toAddress|string|false|none|none|
+|»» toAddressBalance|string|false|none|none|
+|»» value|string|false|none|none|
+|»» fee|integer|false|none|none|
+|»» nonce|integer|false|none|none|
+|»» size|integer|false|none|none|
+|»» status|boolean|false|none|none|
+|»» timestamp|integer|false|none|none|
+|»» assetId|integer|false|none|none|
+
+</section>
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+<p></section></p>
+
+<p></section></p>
+
+<section>
+<h1 id="cennz-scan-api-documentation-address-endpoints">Address endpoints</h1>
+
+Everything about CENNZ scan address
+
+<a href="https://service.centrality.cloud/cennzscan">Find out more about our application</a>
+
+<section>
+
+## Gets the transcation by its address.
+
+> Code samples
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://dh8cl297ul.execute-api.ap-southeast-1.amazonaws.com/api/addresses/{address}/transactions',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://dh8cl297ul.execute-api.ap-southeast-1.amazonaws.com/api/addresses/{address}/transactions', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+`GET /addresses/{address}/transactions`
+
+Gets the transcation by its address from cennz-scan.
+
+<section>
+<h3 id="gets-the-transcation-by-its-address.-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|address|path|string|true|(Required) Address will be the transaction address.|
+|limit|query|integer|false|(Optional) Specifies the number of results to return.|
+|page|query|integer|false|(Optional) Limits the number of items on a page|
+|strat_time|query|integer|false|(Optional) Limits by start time of the transaction and by default specifies the last 90 days|
+|end_time|query|integer|false|(Optional) Limits by end time of the transaction and by default it takes the current time at UTC.|
+|asset_id|query|integer|false|(Optional) Specifing the particular asset_id will return transactions for mentioned token. asset_id accepts only single value|
+|txn_type|query|string|false|(Optional) Depicts the transaction type by default shows all the outgoing, incoming and self transactions. This field supports multiple URL argument. (e.g. ?txn_type=Incoming,Outgoing)|
+
+</section>
+
+<blockquote>
+<p>Example responses</p>
+
+<p>200 Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5H1BWsGGE14RFy4rNw6J2mt8UhYofJkFwevCbfN57WUZ9Wra"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1542673161</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1550449161</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"txn_type"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"Incoming"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Outgoing"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Self"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x0f856bfdc78f572a65dbdc8b61afdf5fe4cc2cbc967083f449049347297b2266"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"blockNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">5467903</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"blockHash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x987678e70b1bb2dcb82b56bded6a6b1cc3bfa1994271b13ed532e995f743d032"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fromAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x6ef8831d3ea0b4ee6ea742906daff7c0199a7ce3"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fromAddressBalance"</span><span class="p">:</span><span class="w"> </span><span class="mi">13925</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"toAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x47a16e51bcc89c0015622fe83eb482a4522f6c5c"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"toAddressBalance"</span><span class="p">:</span><span class="w"> </span><span class="mi">10449</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">48</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"nonce"</span><span class="p">:</span><span class="w"> </span><span class="mi">48</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">280</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1548712836</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"assetId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transactionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Self"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Bad error request</p>
+</blockquote>
+
+<section>
+<h3 id="gets-the-transcation-by-its-address.-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Successful|Inline|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad error request|None|
+
+<h3 id="gets-the-transcation-by-its-address.-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+*response*
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|» params|object|false|none|none|
+|»» address|string|false|none|none|
+|»» limit|integer|false|none|none|
+|»» offset|integer|false|none|none|
+|»» start_time|integer|false|none|none|
+|»» end_time|integer|false|none|none|
+|»» txn_type|string|false|none|none|
+|»» total|integer|false|none|none|
+|» result|object|false|none|none|
+|»» hash|string|false|none|none|
+|»» blockNumber|integer|false|none|none|
+|»» blockHash|string|false|none|none|
+|»» fromAddress|string|false|none|none|
+|»» fromAddressBalance|string|false|none|none|
+|»» toAddress|string|false|none|none|
+|»» toAddressBalance|string|false|none|none|
+|»» value|string|false|none|none|
+|»» fee|integer|false|none|none|
+|»» nonce|integer|false|none|none|
+|»» size|integer|false|none|none|
+|»» status|boolean|false|none|none|
+|»» timestamp|integer|false|none|none|
+|»» assetId|integer|false|none|none|
+|»» transactionType|string|false|none|none|
+
+</section>
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+<p></section></p>
+
+<p></section></p>
+
+<section>
+<h1 id="cennz-scan-api-documentation-balances">Balances</h1>
+
+Everything about cennz scan balances
+
+<a href="https://service.centrality.cloud/cennzscan">Find out more about our application</a>
+
+<section>
+
+## Returns the balances
+
+> Code samples
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://dh8cl297ul.execute-api.ap-southeast-1.amazonaws.com/api/balances',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://dh8cl297ul.execute-api.ap-southeast-1.amazonaws.com/api/balances', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+`GET /balances`
+
+Returns the balances from cennz-scan.
+
+<section>
+<h3 id="returns-the-balances-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|limit|query|integer|false|(Optional) Specifies the number of records per page.|
+|page|query|integer|false|(Optional)Displays the page number.|
+
+</section>
+
+<blockquote>
+<p>Example responses</p>
+
+<p>200 Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5Gw3s7q4QLkSWwknsiPtjujPv3XM4Trxi5d4PgKMMk3gfGTE"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"balance"</span><span class="p">:</span><span class="w"> </span><span class="mi">82694</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"blockNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">212885</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"assetId"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<section>
+<h3 id="returns-the-balances-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Successful|Inline|
+
+<h3 id="returns-the-balances-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+*response*
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|» params|object|false|none|none|
+|»» limit|integer|false|none|none|
+|»» offset|integer|false|none|none|
+|» result|object|false|none|none|
+|»» address|string|false|none|none|
+|»» balance|string|false|none|none|
+|»» blockNumber|integer|false|none|none|
+|»» assetId|integer|false|none|none|
+
+</section>
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+<p></section></p>
+
+<section>
+
+## Returns the latest balances for the specified address.
+
+> Code samples
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://dh8cl297ul.execute-api.ap-southeast-1.amazonaws.com/api/balances/{address}/latest',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://dh8cl297ul.execute-api.ap-southeast-1.amazonaws.com/api/balances/{address}/latest', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+`GET /balances/{address}/latest`
+
+Returns latest balances for the specified address from cennz-scan. This shows latest balance for given token (asset_id) regardless of the block number
+
+<section>
+<h3 id="returns-the-latest-balances-for-the-specified-address.-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|address|path|string|true|(Required) Specific address to get latest balance.|
+|asset_id|query|integer|false|(Optional) Specific asset id.|
+
+</section>
+
+<blockquote>
+<p>Example responses</p>
+
+<p>200 Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5EwBwjpQEPXzJ9rAMFtyf2wqh8wvXMJzRHwqgDU7xWmXa7Sp"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5Gw3s7q4QLkSWwknsiPtjujPv3XM4Trxi5d4PgKMMk3gfGTE"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"balance"</span><span class="p">:</span><span class="w"> </span><span class="mi">82694</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"blockNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">212885</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"assetId"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Bad error request</p>
+</blockquote>
+
+<section>
+<h3 id="returns-the-latest-balances-for-the-specified-address.-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Successful|Inline|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad error request|None|
+
+<h3 id="returns-the-latest-balances-for-the-specified-address.-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+*response*
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|» params|object|false|none|none|
+|»» address|string|false|none|none|
+|» result|object|false|none|none|
+|»» address|string|false|none|none|
+|»» balance|string|false|none|none|
+|»» blockNumber|integer|false|none|none|
+|»» assetId|integer|false|none|none|
+
+</section>
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+<p></section></p>
+
+<p></section></p>
+
+<section>
+<h1 id="cennz-scan-api-documentation-status-endpoints">Status endpoints</h1>
+
+Everything about CENNZ status
+
+<a href="https://service.centrality.cloud/cennzscan">Find out more about our application</a>
+
+<section>
+
+## Gets the latest chain and node information.
+
+> Code samples
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://dh8cl297ul.execute-api.ap-southeast-1.amazonaws.com/api/status',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://dh8cl297ul.execute-api.ap-southeast-1.amazonaws.com/api/status', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+`GET /status`
+
+Gets the latest chain and node information from cennz-scan.
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "chain": "Rimu CENNZnet",
+  "health": {
+    "isSyncing": false,
+    "peers": 1,
+    "shouldHavePeers": true
+  },
+  "node": "cennznet-node",
+  "version": "0.1.0",
+  "peers": {
+    "bestHash": "0xf8f543b52623dab32aab3d986b6fc630bc5483d68b81b9d917b079fa93ad64c2",
+    "bestNumber": 296911,
+    "index": 1,
+    "peerId": "QmXiB3jqqn2rpiKU7k1h7NJYeBg8WNSx9DiTRKz9ti2KSK",
+    "protocolVersion": 1,
+    "roles": "AUTHORITY"
+  }
+}
+```
+
+<section>
+<h3 id="gets-the-latest-chain-and-node-information.-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Successful|Inline|
+
+<h3 id="gets-the-latest-chain-and-node-information.-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|» chain|string|false|none|none|
+|» health|object|false|none|none|
+|»» isSyncing|boolean|false|none|none|
+|»» peers|integer|false|none|none|
+|»» shouldHavePeers|boolean|false|none|none|
+|» node|string|false|none|none|
+|» version|integer|false|none|none|
+|» peers|object|false|none|none|
+|»» bestHash|string|false|none|none|
+|»» bestNumber|integer|false|none|none|
+|»» index|integer|false|none|none|
+|»» peerId|string|false|none|none|
+|»» protocolVersion|integer|false|none|none|
+|»» roles|string|false|none|none|
+
+</section>
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+<p></section></p>
+
+<section>
+
+## Gets the latest cennz-scan status
+
+> Code samples
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://dh8cl297ul.execute-api.ap-southeast-1.amazonaws.com/api/health',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://dh8cl297ul.execute-api.ap-southeast-1.amazonaws.com/api/health', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+`GET /health`
+
+Gets the latest for cennz-scan.
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "Database connection status": "OK"
+}
+```
+
+<section>
+<h3 id="gets-the-latest-cennz-scan-status-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Successful|Inline|
+
+<h3 id="gets-the-latest-cennz-scan-status-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|» Database connection status|string|false|none|none|
+
+</section>
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+<p></section></p>
+
+<p></section></p>
+
+<section>
+<h1 id="cennz-scan-api-documentation-stats-endpoints">Stats endpoints</h1>
+
+Everything about cennz scan stats
+
+<a href="https://service.centrality.cloud/cennzscan">Find out more about our application</a>
+
+<section>
+
+## Gets the basic stats.
+
+> Code samples
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://dh8cl297ul.execute-api.ap-southeast-1.amazonaws.com/api/stats',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://dh8cl297ul.execute-api.ap-southeast-1.amazonaws.com/api/stats', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+`GET /stats`
+
+Gets the basic stats from cennz-scan.
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "transactionCount": 307,
+  "addressCount": 31,
+  "averageTime": 6.06,
+  "activeValidators": 3,
+  "sessionsProgress": 5,
+  "sessionLength": 10,
+  "eraProgress": 15,
+  "eraLength": 50
+}
+```
+
+<section>
+<h3 id="gets-the-basic-stats.-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Successful|Inline|
+
+<h3 id="gets-the-basic-stats.-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|» transactionCount|integer|false|none|none|
+|» addressCount|integer|false|none|none|
+|» averageTime|integer|false|none|none|
+|» activeValidators|integer|false|none|none|
+|» sessionsProgress|integer|false|none|none|
+|» sessionLength|integer|false|none|none|
+|» eraProgress|integer|false|none|none|
+|» eraLength|integer|false|none|none|
+
+</section>
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+<p></section></p>
+
+<section>
+
+## Gets the last 24 hours stats for transactions.
+
+> Code samples
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://dh8cl297ul.execute-api.ap-southeast-1.amazonaws.com/api/stats/transactions',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://dh8cl297ul.execute-api.ap-southeast-1.amazonaws.com/api/stats/transactions', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+`GET /stats/transactions`
+
+Gets the last 24 hours stats for transactions from cennz-scan.
+
+<section>
+<h3 id="gets-the-last-24-hours-stats-for-transactions.-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|period|query|string|false|(Optional) Displays the last 24 hours transaction stats by default. This paramaeter can also be further customised as ''period=last7d'' to get last 7 days transactions stats, ''period=last30d'' to get last 30 days transactions stats and ''period=last365d'' to get last 365 days monthly transactions stats respectively.|
+
+</section>
+
+<blockquote>
+<p>Example responses</p>
+
+<p>200 Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"period"</span><span class="p">:</span><span class="w"> </span><span class="s2">"last24h"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="mi">548882000</span><span class="p">,</span><span class="w">
+      </span><span class="mi">1548885600</span><span class="p">,</span><span class="w">
+      </span><span class="mi">1548889200</span><span class="p">,</span><span class="w">
+      </span><span class="mi">1548892800</span><span class="p">,</span><span class="w">
+      </span><span class="mi">1548896400</span><span class="p">,</span><span class="w">
+      </span><span class="mi">1548900000</span><span class="p">,</span><span class="w">
+      </span><span class="mi">1548903600</span><span class="p">,</span><span class="w">
+      </span><span class="mi">1548907200</span><span class="p">,</span><span class="w">
+      </span><span class="mi">1548910800</span><span class="p">,</span><span class="w">
+      </span><span class="mi">1548914400</span><span class="p">,</span><span class="w">
+      </span><span class="mi">1548918000</span><span class="p">,</span><span class="w">
+      </span><span class="mi">1548921600</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"datetime"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"2019-01-30T21:00:00.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"2019-01-30T22:00:00.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"2019-01-30T23:00:00.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"2019-01-31T00:00:00.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"2019-01-31T01:00:00.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"2019-01-31T02:00:00.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"2019-01-31T03:00:00.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"2019-01-31T04:00:00.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"2019-01-31T05:00:00.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"2019-01-31T06:00:00.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"2019-01-31T07:00:00.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"2019-01-31T08:00:00.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"2019-01-31T09:00:00.000Z"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"transactioncount"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="mi">18</span><span class="p">,</span><span class="w">
+      </span><span class="mi">15</span><span class="p">,</span><span class="w">
+      </span><span class="mi">14</span><span class="p">,</span><span class="w">
+      </span><span class="mi">5</span><span class="p">,</span><span class="w">
+      </span><span class="mi">5</span><span class="p">,</span><span class="w">
+      </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="mi">0</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<section>
+<h3 id="gets-the-last-24-hours-stats-for-transactions.-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Successful|Inline|
+
+<h3 id="gets-the-last-24-hours-stats-for-transactions.-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|» period|object|false|none|none|
+|» result|object|false|none|none|
+|»» timestamp|integer|false|none|none|
+|»» datetime|string|false|none|none|
+|»» transactioncount|integer|false|none|none|
+
+</section>
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+<p></section></p>
+
+<p></section></p>
+
+<section>
+<h1 id="cennz-scan-api-documentation-assets">assets</h1>
+
+Everything about cennz scan assets
+
+<a href="https://service.centrality.cloud/cennzscan">Find out more about our application</a>
+
+<section>
+
+## Gets the basic information about assets.
+
+> Code samples
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://dh8cl297ul.execute-api.ap-southeast-1.amazonaws.com/api/assets',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://dh8cl297ul.execute-api.ap-southeast-1.amazonaws.com/api/assets', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+`GET /assets`
+
+Gets the information about assets from cennz-scan.
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "params": {
+    "limit": 30,
+    "offset": 0,
+    "asset_type": [
+      "Stalking",
+      "Spending",
+      "Reserved",
+      "Reserved-runtime",
+      "User-generated"
+    ],
+    "total": 122
+  },
+  "result": {
+    "hash": 30,
+    "assetId": 0,
+    "totalSupply": 5.65e+26,
+    "blockNumber": 100,
+    "timestamp": 1552028272,
+    "symbol": "CENNZ",
+    "creator": "",
+    "decimal": 18,
+    "assetType": "Staking"
+  }
+}
+```
+
+<section>
+<h3 id="gets-the-basic-information-about-assets.-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Successful|Inline|
+
+<h3 id="gets-the-basic-information-about-assets.-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|» params|object|false|none|none|
+|»» limit|integer|false|none|none|
+|»» offset|integer|false|none|none|
+|»» asset_type|string|false|none|none|
+|»» total|integer|false|none|none|
+|» result|object|false|none|none|
+|»» hash|string|false|none|none|
+|»» assetId|integer|false|none|none|
+|»» totalSupply|integer|false|none|none|
+|»» blockNumber|integer|false|none|none|
+|»» timestamp|integer|false|none|none|
+|»» symbol|string|false|none|none|
+|»» creator|string|false|none|none|
+|»» decimal|integer|false|none|none|
+|»» assetType|string|false|none|none|
+
+</section>
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+<p></section></p>
+
+<p></section></p>
+
+<section>
+
+# Schemas
+
+<section>
+<h2 id="tocS_blocks">blocks</h2>
+<!-- backwards compatibility -->
+<a id="schemablocks"></a>
+<a id="schema_blocks"></a>
+<a id="tocSblocks"></a>
+<a id="tocsblocks"></a>
+
+```json
+{
+  "number": 158174,
+  "hash": "0x9965008d9b0e6f3d07f0b274c0dfaff4bdc86f99a0f229c11f3b5dbb8ab00a68",
+  "parentHash": "0xf710b4cd572c6f078f4b59405ee35dc3f40d58e76aeceb5beeae7b9d3f720c7a",
+  "stateRoot": "0x71d488ad7d7d95a68d6b1445727890c3c54d1fdb9e8393d8cf94f30755eaf99c",
+  "extrinscicsRoot": "0xc8d89314f6372c38e66292de1278970f93ea1b541aa401fa52aa4ce941fbcf7c",
+  "timestamp": 1548384684,
+  "transactionCount": 0,
+  "baseFee": 10,
+  "byteFee": 1,
+  "transferFee": 1,
+  "author": "5DcS1HEPFaPJVwoU52HLZNkuikoP5Qey2eU5B26v6D7qjkiB",
+  "extrinsicsCount": 1,
+  "validators": [
+    "5DcS1HEPFaPJVwoU52HLZNkuikoP5Qey2eU5B26v6D7qjkiB",
+    "5G6tDRK9KSWLx3zL4gMnzh2K6QUNAb6EGCiyPMTAzCmt45A4",
+    "5EKGZwAuwvVpVaGWZJ3hYDqTSxQCDDUgeMv36M4qLq7wtWLH"
+  ],
+  "status": "complete"
+}
+
+```
+
+<section>
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|number|integer|false|none|none|
+|hash|string|false|none|none|
+|parentHash|string|false|none|none|
+|stateRoot|string|false|none|none|
+|extrinscicsRoot|string|false|none|none|
+|timestamp|integer|false|none|none|
+|transactionCount|integer|false|none|none|
+|baseFee|integer|false|none|none|
+|byteFee|integer|false|none|none|
+|transferFee|integer|false|none|none|
+|author|string|false|none|none|
+|extrinsicsCount|integer|false|none|none|
+|validators|string|false|none|none|
+|status|string|false|none|none|
+
+</section>
+
+<p></section></p>
+
+<section>
+<h2 id="tocS_transactions">transactions</h2>
+<!-- backwards compatibility -->
+<a id="schematransactions"></a>
+<a id="schema_transactions"></a>
+<a id="tocStransactions"></a>
+<a id="tocstransactions"></a>
+
+```json
+{
+  "hash": "0x0f856bfdc78f572a65dbdc8b61afdf5fe4cc2cbc967083f449049347297b2266",
+  "blockNumber": 5467903,
+  "blockHash": "0x987678e70b1bb2dcb82b56bded6a6b1cc3bfa1994271b13ed532e995f743d032",
+  "fromAddress": "0x6ef8831d3ea0b4ee6ea742906daff7c0199a7ce3",
+  "fromAddressBalance": 13925,
+  "toAddress": "0x47a16e51bcc89c0015622fe83eb482a4522f6c5c",
+  "toAddressBalance": 10449,
+  "value": 0,
+  "fee": 48,
+  "nonce": 48,
+  "size": 280,
+  "status": true,
+  "timestamp": 1548712836,
+  "assetId": 0
+}
+
+```
+
+<section>
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|hash|string|false|none|none|
+|blockNumber|integer|false|none|none|
+|blockHash|string|false|none|none|
+|fromAddress|string|false|none|none|
+|fromAddressBalance|string|false|none|none|
+|toAddress|string|false|none|none|
+|toAddressBalance|string|false|none|none|
+|value|string|false|none|none|
+|fee|integer|false|none|none|
+|nonce|integer|false|none|none|
+|size|integer|false|none|none|
+|status|boolean|false|none|none|
+|timestamp|integer|false|none|none|
+|assetId|integer|false|none|none|
+
+</section>
+
+<p></section></p>
+
+<section>
+<h2 id="tocS_balance">balance</h2>
+<!-- backwards compatibility -->
+<a id="schemabalance"></a>
+<a id="schema_balance"></a>
+<a id="tocSbalance"></a>
+<a id="tocsbalance"></a>
+
+```json
+{
+  "address": "5Gw3s7q4QLkSWwknsiPtjujPv3XM4Trxi5d4PgKMMk3gfGTE",
+  "balance": 82694,
+  "blockNumber": 212885,
+  "assetId": 10
+}
+
+```
+
+<section>
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|address|string|false|none|none|
+|balance|string|false|none|none|
+|blockNumber|integer|false|none|none|
+|assetId|integer|false|none|none|
+
+</section>
+
+<p></section></p>
