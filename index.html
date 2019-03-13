@@ -201,7 +201,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;curl&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -211,10 +211,7 @@
     <div class="toc-wrapper">
       <img src="images/logo.png" class="logo" alt="Logo" />
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
-              <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="curl">curl</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -248,11 +245,12 @@
 <p>Welcome to the CENNZ scan API! You can use our API to access CENNZ scan API endpoints, which can get information on various transactions, blocks, and address from CENNZ net (RIMU version)</p>
 
 <p>We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
-<h1 id='blocks-endoint'>Blocks endoint</h1><h2 id='get-all-blocks'>Get All Blocks</h2><h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
+<h1 id='blocks-endoint'>Blocks endoint</h1><h2 id='get-all-blocks'>Get All Blocks</h2><pre class="highlight plaintext"><code>curl -X GET "https://dh8cl297ul.execute-api.ap-southeast-1.amazonaws.com/api/blocks?limit=30&amp;page=1" -H "accept: application/json"
+</code></pre><h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://dh8cl297ul.execute-api.ap-southeast-1.amazonaws.com/api/blocks</code></p>
 
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The HTTP request returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -283,7 +281,7 @@
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves all the blocks.</p>
+<p>This endpoint retrieves all the blocks from cennznet restricting to 30 blcoks by default.</p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -375,10 +373,7 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
-                <a href="#" data-language-name="javascript">javascript</a>
+                <a href="#" data-language-name="curl">curl</a>
           </div>
       </div>
     </div>
